@@ -26,8 +26,7 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="24-Hour" id="0SH-VT-nCt">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="24-Hour" keyEquivalent="." id="0SH-VT-nCt">
                                 <connections>
                                     <action selector="setMilitaryTime:" target="376" id="b7U-6y-Y9I"/>
                                 </connections>
