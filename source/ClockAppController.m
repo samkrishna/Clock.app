@@ -10,6 +10,9 @@
 #import "ClockView.h"
 #import "ClockWindow.h"
 
+NSString *const kCLKStateKey = @"24-Hour State";
+NSString *const ClockStateChangedNotification = @"24-Hour State Changed";
+
 // Private methods
 @interface ClockAppController ()
 
@@ -48,6 +51,28 @@
 	[self.timer invalidate];
 }
 
+- (IBAction)setMilitaryTime:(NSMenuItem *)sender
+{
+    NSInteger state = [sender state];
+
+    if (state == NSOnState) {
+        self.militaryTimeItem.state = NSOffState;
+        [[NSUserDefaults standardUserDefaults] setInteger:NSOffState forKey:kCLKStateKey];
+    }
+    else if (state == NSOffState) {
+        self.militaryTimeItem.state = NSOnState;
+        [[NSUserDefaults standardUserDefaults] setInteger:NSOnState forKey:kCLKStateKey];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ClockStateChangedNotification object:nil];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    NSInteger state = [[NSUserDefaults standardUserDefaults] integerForKey:kCLKStateKey];
+    self.militaryTimeItem.state = state;
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {

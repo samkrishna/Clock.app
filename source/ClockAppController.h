@@ -11,6 +11,9 @@
 @class ClockView;
 @class ClockWindow;
 
+extern NSString *const kCLKStateKey;
+extern NSString *const ClockStateChangedNotification;
+
 @interface ClockAppController : NSObject <NSApplicationDelegate>
 {
 	IBOutlet ClockView *clockView;
@@ -21,5 +24,9 @@
 @property (strong) ClockView *clockView;
 @property (strong) ClockWindow *clockWindow;
 @property (strong) NSTimer *timer;
+
+@property (nonatomic, strong, readwrite) IBOutlet NSMenuItem *militaryTimeItem;
+
+- (IBAction)setMilitaryTime:(NSMenuItem *)sender;
 
 @end
