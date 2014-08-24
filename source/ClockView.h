@@ -20,9 +20,9 @@
 
 @property (assign) NSRect textRect;
 @property (assign) NSSize textSize;
-@property (retain) NSColor *backgroundColor;
-@property (retain) NSBezierPath *clipShape;
-@property (retain) NSMutableDictionary *textAttributes;
-@property (retain) NSMutableDictionary *dateAttributes;
+@property (strong) NSColor *backgroundColor;
+@property (strong) NSBezierPath *clipShape;
+@property (strong) NSMutableDictionary *textAttributes;
+@property (strong) NSMutableDictionary *dateAttributes;
 
 @end

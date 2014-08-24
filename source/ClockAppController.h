@@ -18,8 +18,8 @@
 	NSTimer *timer;
 }
 
-@property (retain) ClockView *clockView;
-@property (retain) ClockWindow *clockWindow;
-@property (retain) NSTimer *timer;
+@property (strong) ClockView *clockView;
+@property (strong) ClockWindow *clockWindow;
+@property (strong) NSTimer *timer;
 
 @end
